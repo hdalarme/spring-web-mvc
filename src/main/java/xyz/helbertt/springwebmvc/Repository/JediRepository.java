@@ -1,14 +1,16 @@
 package xyz.helbertt.springwebmvc.Repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import xyz.helbertt.springwebmvc.model.Jedi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class JediRepository {
+public interface JediRepository extends JpaRepository<Jedi, Long> {
 
+    List<Jedi> findByNameContainingIgnoreCase(final String name);
+/*
     private List<Jedi> jedi;
 
     public JediRepository (){
@@ -24,4 +26,5 @@ public class JediRepository {
     public void add(Jedi jedi) {
         this.jedi.add(jedi);
     }
+ */
 }
